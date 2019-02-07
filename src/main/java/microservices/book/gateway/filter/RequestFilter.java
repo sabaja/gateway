@@ -39,7 +39,7 @@ public class RequestFilter extends ZuulFilter {
 	public Object run() throws ZuulException {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
-	log.info("{} request ro {}",request.getMethod(), request.getRequestURL().toString());
+	log.info("{} request to {}",request.getMethod(), request.getRequestURL().toString());
 		return null;
 	}
 

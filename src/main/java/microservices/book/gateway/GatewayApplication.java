@@ -20,8 +20,8 @@ public class GatewayApplication {
 	public static void main(String[] args) throws IOException {
 		log.info("Preparing to run application");
 		ConfigurableApplicationContext ctx = SpringApplication.run(GatewayApplication.class, args);
-		log.info("\n{}\nContext is running...\nStarted @[{}] \nHit enter to stop server",
-				ctx.getDisplayName(),
+		log.info("profiles: {}", (Object) ctx.getEnvironment().getDefaultProfiles());
+		log.info("\n{}\nContext is running...\nStarted @[{}] \nHit enter to stop server", ctx.getDisplayName(),
 				Instant.ofEpochMilli(ctx.getStartupDate()).atZone(ZoneId.systemDefault()).toLocalDateTime());
 		System.in.read();
 		ctx.close();
