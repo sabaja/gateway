@@ -9,16 +9,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+
+import microservices.book.gateway.configuration.RibbonConfiguration;
 
 @EnableZuulProxy
 @EnableEurekaClient
 @SpringBootApplication
+@RibbonClients(defaultConfiguration = RibbonConfiguration.class)
 public class GatewayApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(GatewayApplication.class);
@@ -32,22 +32,4 @@ public class GatewayApplication {
 		System.in.read();
 		ctx.close();
 	}
-
-//	@Bean
-//	public CorsFilter corsFilter() {
-//	    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//	    final CorsConfiguration config = new CorsConfiguration();
-//	    config.setAllowCredentials(true);
-//	    config.addAllowedOrigin("*");
-//	    config.addAllowedHeader("*");
-//	    config.addAllowedMethod("OPTIONS");
-//	    config.addAllowedMethod("HEAD");
-//	    config.addAllowedMethod("GET");
-//	    config.addAllowedMethod("PUT");
-//	    config.addAllowedMethod("POST");
-//	    config.addAllowedMethod("DELETE");
-//	    config.addAllowedMethod("PATCH");
-//	    source.registerCorsConfiguration("/**", config);
-//	    return new CorsFilter(source);
-//	}
 }
