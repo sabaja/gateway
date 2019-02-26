@@ -18,7 +18,7 @@ import microservices.book.gateway.configuration.RibbonConfiguration;
 @EnableZuulProxy
 @EnableEurekaClient
 @SpringBootApplication
-@RibbonClients(defaultConfiguration = RibbonConfiguration.class)
+//@RibbonClients(defaultConfiguration = RibbonConfiguration.class)
 public class GatewayApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(GatewayApplication.class);
