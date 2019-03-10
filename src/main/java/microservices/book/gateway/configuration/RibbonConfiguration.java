@@ -27,8 +27,10 @@ public class RibbonConfiguration {
 		 * 
 		 * @author stonse
 		 * 
+		 *  
+		 *  spring boot 2.0 actuator changes: the /info endpoint is now available at /application/info 
 		 */
-		return new PingUrl(false, "/health");
+		return new PingUrl(false, "/application/health");
 	}
 	
 	@Bean

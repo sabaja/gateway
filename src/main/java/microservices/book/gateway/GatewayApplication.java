@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
@@ -18,6 +19,7 @@ import microservices.book.gateway.configuration.RibbonConfiguration;
 @EnableZuulProxy
 @EnableEurekaClient
 @SpringBootApplication
+@EnableCircuitBreaker
 //@RibbonClients(defaultConfiguration = RibbonConfiguration.class)
 public class GatewayApplication {
 
