@@ -30,7 +30,7 @@ public class GatewayApplication {
 	public static void main(String[] args) throws IOException {
 		log.info("Preparing to run application");
 		ConfigurableApplicationContext ctx = SpringApplication.run(GatewayApplication.class, args);
-		String []beans = ctx.getBeanDefinitionNames();
+		String[] beans = ctx.getBeanDefinitionNames();
 		List<String> listOfBean = Arrays.stream(beans).sorted().collect(Collectors.toList());
 		log.info("context beans...");
 		listOfBean.forEach((e) -> log.info(e));
