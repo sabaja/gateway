@@ -16,6 +16,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+import microservices.book.gateway.configuration.GamificationHystrixFallbackProvider;
+import microservices.book.gateway.configuration.MultiplicationHystrixFallbackProvider;
 
 @EnableZuulProxy
 @EnableEurekaClient
@@ -39,5 +43,15 @@ public class GatewayApplication {
 				Instant.ofEpochMilli(ctx.getStartupDate()).atZone(ZoneId.systemDefault()).toLocalDateTime());
 		System.in.read();
 		ctx.close();
+	}
+	
+	@Bean
+	public GamificationHystrixFallbackProvider gamificationHystrixFallbackProvider() {
+		return new GamificationHystrixFallbackProvider();
+	}
+	
+	@Bean
+	public MultiplicationHystrixFallbackProvider  multiplicationHystrixFallbackProvider() {
+		return new MultiplicationHystrixFallbackProvider();
 	}
 }
